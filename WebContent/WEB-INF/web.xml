@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>TSW2021_DonutRump</display-name>
+  <welcome-file-list>
+    <welcome-file>ProductView.jsp</welcome-file> 
+  </welcome-file-list>
+
+  <resource-ref>
+    <description> Riferimento JNDI ad un data source </description>
+    <res-ref-name>jdbc/TSW2021_DonutRump</res-ref-name> <!-- Qui, in web.xml definisco il nome della risorsa-->
+    <res-type>javax.sql.DataSource</res-type> <!-- Sto dicendo che il tipo di questa risorsa è DataSource -->
+    <res-auth>Container</res-auth> <!--E che può leggerla il Container -->
+  </resource-ref>
+  
+  <servlet>
+    <servlet-name>GeneralProductServlet</servlet-name>
+    <servlet-class>com.donutrump.control.GeneralProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping> <!--sarebbe un ALIAS -->
+    <servlet-name>GeneralProductServlet</servlet-name>
+    <url-pattern>/Product</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.donutrump.control.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping> <!--sarebbe un ALIAS -->
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/User</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.donutrump.control.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping> <!--sarebbe un ALIAS -->
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/Admin</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.donutrump.control.OrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping> <!--sarebbe un ALIAS -->
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/Order</url-pattern>
+  </servlet-mapping>
+</web-app>
